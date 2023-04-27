@@ -1,6 +1,10 @@
 import { readFile, writeFile } from 'fs/promises';
 
 const filePath = 'messages.json';
+
+import { Injectable } from '@nestjs/common';
+
+@Injectable() //this will indicate NEST Js to add/register this class in DI container, to be used as a dependency
 export class MessagesRepository {
   async getAllMessages() {
     const contents = await readFile(filePath, 'utf8');
